@@ -436,22 +436,36 @@
     }
 
     .cta-types {
-      display: inline-flex;
-      border: 0.5px solid var(--sand-deeper);
-      border-radius: 2px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
       margin-bottom: 32px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .cta-type {
-      font-size: 11px;
-      letter-spacing: 0.14em;
+      font-size: 10.5px;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      padding: 11px 22px;
-      color: var(--bark-mid);
-      border-right: 0.5px solid var(--sand-deeper);
+      padding: 10px 18px;
+      border-radius: 2px;
+      border: 0.5px solid;
+      white-space: nowrap;
+      transition: opacity 0.2s;
     }
 
-    .cta-type:last-child { border-right: none; }
+    .cta-type:hover { opacity: 0.75; }
+
+    .cta-type:nth-child(1) { color: var(--lilac);   border-color: var(--lilac-mid);  background: var(--lilac-light); }
+    .cta-type:nth-child(2) { color: var(--crimson);  border-color: #e8a898;           background: #fdf0ec; }
+    .cta-type:nth-child(3) { color: var(--green);    border-color: var(--green-mid);  background: var(--green-light); }
+    .cta-type:nth-child(4) { color: var(--ochre);    border-color: var(--ochre-mid);  background: var(--ochre-light); }
+    .cta-type:nth-child(5) { color: var(--lilac);    border-color: var(--lilac-mid);  background: var(--lilac-light); }
+    .cta-type:nth-child(6) { color: #5a6ea8;         border-color: #b0bedd;           background: #edf0f8; }
+    .cta-type:nth-child(7) { color: var(--green);    border-color: var(--green-mid);  background: var(--green-light); }
 
     /* ── CONTATO ── */
     #contato {
@@ -554,9 +568,8 @@
       }
 
       #agenda { padding: 48px 24px; }
-      .cta-types { flex-direction: column; }
-      .cta-type { border-right: none; border-bottom: 0.5px solid var(--sand-deeper); }
-      .cta-type:last-child { border-bottom: none; }
+      .cta-types { gap: 8px; }
+      .cta-type { font-size: 10px; padding: 9px 14px; }
 
       #contato { padding: 48px 24px; }
 
@@ -1173,8 +1186,9 @@
     <div>
       <p class="about-eyebrow">Sobre Beatriz</p>
       <h2 class="about-title">Cuidado como<br><em>prática de</em><br>conhecimento.</h2>
-      <p class="about-text">Beatriz integra o rigor dos sistemas de saber — psicologia analítica, Reiki, astrologia — com a escuta sensível de quem acompanha processos de individuação há anos.</p>
-      <p class="about-text">O trabalho não separa mente, corpo e campo energético. As três raízes sustentam o mesmo movimento: crescer.</p>
+      <p class="about-text">Aquariana por natureza, Beatriz de Miranda Brusantin sempre soube que o conhecimento tem muitas formas. Paulista de origem, trilhou durante anos os caminhos da academia — mas foi quando voltou o olhar para si mesma que sua jornada mais profunda começou.</p>
+      <h3 class="about-subtitle">Uma trajetória em dois mundos</h3>
+      <button class="btn-saibamais" onclick="openBioModal()">Saiba mais</button>
       <div class="tags">
         <span class="tag green">Mestra Reiki · Usui</span>
         <span class="tag lilac">Psicologia analítica · Astrologia</span>
@@ -1189,9 +1203,13 @@
     <h2 class="cta-title">Marque uma conversa</h2>
     <p class="cta-sub">Sessões individuais online. Atendimento em português. Primeiro contato por mensagem.</p>
     <div class="cta-types">
-      <span class="cta-type">Sessão avulsa</span>
-      <span class="cta-type">Processo contínuo</span>
-      <span class="cta-type">Leitura de mapa</span>
+      <span class="cta-type">Consulta astrológica</span>
+      <span class="cta-type">Cuidado integral da mulher</span>
+      <span class="cta-type">Sessões com terapias energéticas</span>
+      <span class="cta-type">Arteterapia</span>
+      <span class="cta-type">Processos Analíticos</span>
+      <span class="cta-type">Práticas profundas e ritualísticas</span>
+      <span class="cta-type">Cursos e Iniciações</span>
     </div>
     <br>
     <!-- Substitua o href pelo link de agendamento real (ex: Calendly, WhatsApp) -->
@@ -2757,6 +2775,298 @@
     });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeJungModal();
+    });
+  </script>
+
+  <!-- MODAL BIO BEATRIZ -->
+  <div class="modal-overlay" id="bio-modal">
+    <div class="modal bio-modal-box">
+      <button class="modal-close" onclick="closeBioModal()">✕</button>
+
+      <p class="bio-eyebrow">Sobre mim</p>
+      <h2 class="bio-title">Beatriz <em>Brusantin</em></h2>
+      <p class="bio-subtitle">Educadora, pesquisadora e terapeuta integrativa — uma vida construída entre o rigor acadêmico e a escuta da alma</p>
+
+      <div class="bio-timeline">
+        <div class="bio-event">
+          <span class="bio-event-date">A partir de 2002</span>
+          <p class="bio-event-desc">Formada em História pela USP, com mestrado e doutorado pela Unicamp, dedicou mais de duas décadas à pesquisa científica e à docência — construindo uma base sólida para compreender o ser humano em sua dimensão histórica e coletiva.</p>
+        </div>
+        <div class="bio-event">
+          <span class="bio-event-date">2012 — O chamado interior</span>
+          <p class="bio-event-desc">Um novo campo se abriu. Em um processo genuíno de autoconhecimento e cuidado pessoal, foi iniciada no Reiki, mergulhou nas práticas budistas, descobriu a Arteterapia, caminhou pela cura do feminino e encontrou na sabedoria das flores e ervas uma linguagem que as palavras não alcançam.</p>
+        </div>
+        <div class="bio-event">
+          <span class="bio-event-date">2016 — As Três Raízes</span>
+          <p class="bio-event-desc">Após quatro anos de aprofundamento nos níveis II, III e no Mestrado em Reiki, criou as Três Raízes — espaço que nasce da integração entre o saber acadêmico e a sabedoria das terapias integrativas, dedicado ao cuidar de si e do outro.</p>
+        </div>
+      </div>
+
+      <!-- Formações -->
+      <div class="bio-divider"><span></span><span class="bio-divider-dot"></span><span></span></div>
+      <h3 class="bio-section-title">Formações e certificações</h3>
+
+      <div class="bio-formacoes">
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Arteterapia</div>
+          <div class="bio-formacao-desc">Pós-graduação com abordagem junguiana</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Psicologia Analítica</div>
+          <div class="bio-formacao-desc">Pós-graduação pela perspectiva de Jung</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Astrologia Psicológica</div>
+          <div class="bio-formacao-desc">Curso certificado</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Gineterapia</div>
+          <div class="bio-formacao-desc">Formação completa</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Florais da Amazônia</div>
+          <div class="bio-formacao-desc">Níveis básico e intermediário</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Auriculoacupuntura</div>
+          <div class="bio-formacao-desc">Formação com base na Medicina Tradicional Chinesa</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Fitoterapia</div>
+          <div class="bio-formacao-desc">Uso terapêutico de plantas medicinais</div>
+        </div>
+        <div class="bio-formacao">
+          <div class="bio-formacao-nome">Reiki</div>
+          <div class="bio-formacao-desc">Níveis I, II, III e Mestrado</div>
+        </div>
+        <div class="bio-formacao bio-formacao--full">
+          <div class="bio-formacao-nome">Moon Mother® — Nível II</div>
+          <div class="bio-formacao-desc">Iniciação no sagrado feminino e medicina da lua</div>
+        </div>
+      </div>
+
+      <!-- Frase final -->
+      <p class="bio-frase"><em>Beatriz acredita que cuidar é uma arte — e que o autoconhecimento é o caminho mais honesto para uma vida mais plena, inteira e verdadeira.</em></p>
+
+      <div style="text-align:center;margin-top:28px;">
+        <a href="#agenda" class="btn-primary" onclick="closeBioModal()">Agendar sessão</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* ── BOTÃO SAIBA MAIS ── */
+    .about-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--bark-mid);
+      margin: 20px 0 14px;
+      line-height: 1.4;
+    }
+
+    .btn-saibamais {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      background: transparent;
+      color: var(--bark-mid);
+      border: 0.5px solid var(--bark-light);
+      cursor: pointer;
+      border-radius: 2px;
+      margin-bottom: 24px;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-saibamais:hover { border-color: var(--bark); color: var(--bark); }
+
+    /* ── MODAL BIO ── */
+    .bio-modal-box { max-width: 620px; }
+
+    .bio-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--bark-light);
+      margin-bottom: 12px;
+    }
+
+    .bio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--bark);
+      margin-bottom: 10px;
+    }
+
+    .bio-title em { font-style: italic; color: var(--bark-mid); }
+
+    .bio-subtitle {
+      font-size: 14px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      color: var(--bark-mid);
+      line-height: 1.65;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 0.5px solid var(--sand-dark);
+    }
+
+    .bio-body {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--bark);
+      margin-bottom: 28px;
+    }
+
+    .bio-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--bark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 0.5px solid var(--sand-dark);
+    }
+
+    /* Timeline */
+    .bio-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 32px;
+      padding-left: 24px;
+      border-left: 2px solid var(--sand-deeper);
+    }
+
+    .bio-event {
+      position: relative;
+      padding: 0 0 24px;
+    }
+
+    .bio-event:last-child { padding-bottom: 0; }
+
+    .bio-event::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2px solid var(--bark-light);
+    }
+
+    .bio-event-date {
+      font-size: 10.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bark-light);
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .bio-event-desc {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--bark);
+    }
+
+    /* Divisor */
+    .bio-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .bio-divider span:not(.bio-divider-dot) {
+      flex: 1;
+      height: 0.5px;
+      background: var(--sand-dark);
+    }
+
+    .bio-divider-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--sand-deeper);
+      flex: none;
+    }
+
+    /* Formações */
+    .bio-formacoes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .bio-formacao {
+      background: var(--sand);
+      border: 0.5px solid var(--sand-dark);
+      border-radius: 3px;
+      padding: 14px 16px;
+    }
+
+    .bio-formacao--full { grid-column: 1 / -1; }
+
+    .bio-formacao-nome {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .bio-formacao-desc {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--bark-mid);
+    }
+
+    /* Frase final */
+    .bio-frase {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--bark);
+      text-align: center;
+      padding: 20px 24px;
+      background: var(--sand);
+      border-left: 3px solid var(--bark-light);
+      border-radius: 0 3px 3px 0;
+      margin-bottom: 4px;
+    }
+
+    /* Dark mode */
+    html.dark .bio-formacao { background: rgba(255,255,255,0.05); border-color: rgba(156,120,84,0.25); }
+    html.dark .bio-frase     { background: rgba(255,255,255,0.04); }
+
+    @media (max-width: 600px) {
+      .bio-formacoes { grid-template-columns: 1fr; }
+      .bio-formacao--full { grid-column: 1; }
+      .bio-title { font-size: 26px; }
+    }
+  </style>
+
+  <script>
+    function openBioModal()  { document.getElementById('bio-modal').classList.add('active'); }
+    function closeBioModal() { document.getElementById('bio-modal').classList.remove('active'); }
+    document.getElementById('bio-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeBioModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeBioModal();
     });
   </script>
 
