@@ -581,97 +581,6 @@
       }
     }
 
-    /* ── DARK MODE VARIABLES ── */
-    html.dark {
-      --sand:        #3a2a1a;
-      --sand-dark:   #2e2010;
-      --sand-deeper: #4a3520;
-      --green:       #8ab870;
-      --green-light: #1a2a14;
-      --green-mid:   #4a7035;
-      --lilac:       #b090d8;
-      --lilac-light: #1e1430;
-      --lilac-mid:   #6045a0;
-      --ochre:       #e8a060;
-      --ochre-light: #2a1a08;
-      --ochre-mid:   #a05820;
-      --crimson:     #e07060;
-      --bark:        #f0e6d2;
-      --bark-mid:    #d4c0a0;
-      --bark-light:  #a89070;
-      --cream:       #1a1008;
-    }
-
-    /* Nav no dark mode */
-    html.dark nav {
-      background: #1a1008;
-      border-bottom-color: #2e2010;
-    }
-
-    /* Quote band no dark mode */
-    html.dark .quote-band {
-      background: #0e0804;
-    }
-
-    /* Footer no dark */
-    html.dark footer {
-      background: #0e0804;
-    }
-
-    /* Seção agenda (fundo sand) no dark */
-    html.dark #agenda {
-      background: #1a1008;
-      border-bottom-color: #2e2010;
-    }
-
-    html.dark #inicio {
-      background: #140c04;
-    }
-
-    /* ── TOGGLE BUTTON ── */
-    .theme-toggle {
-      background: none;
-      border: 0.5px solid var(--sand-dark);
-      border-radius: 20px;
-      padding: 6px 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--bark-mid);
-      transition: border-color 0.2s, color 0.2s;
-      white-space: nowrap;
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--bark-light);
-      color: var(--bark);
-    }
-
-    .theme-toggle .icon-sol,
-    .theme-toggle .icon-lua {
-      font-size: 13px;
-      line-height: 1;
-      transition: opacity 0.2s;
-    }
-
-    /* No modo claro: mostra sol (indica que clicando vai pro escuro) */
-    html:not(.dark) .theme-toggle .icon-sol { display: none; }
-    html:not(.dark) .theme-toggle .icon-lua { display: inline; }
-
-    /* No modo escuro: mostra lua (indica que clicando vai pro claro) */
-    html.dark .theme-toggle .icon-sol { display: inline; }
-    html.dark .theme-toggle .icon-lua { display: none; }
-
-    /* Transição suave ao trocar tema */
-    body, nav, footer, section, .root-card, .quote-band, .color-strip {
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    }
-
-
     /* ══════════════════════════════════════════
        BLOG SECTION
     ══════════════════════════════════════════ */
@@ -725,10 +634,6 @@
       animation: fadeUp 0.5s ease both;
     }
 
-    html.dark .post-card {
-      background: #1e120a;
-      border-color: var(--sand-dark);
-    }
 
     .post-card:hover {
       transform: translateY(-2px);
@@ -885,7 +790,6 @@
       animation: modalIn 0.3s ease;
     }
 
-    html.dark .modal { background: #1a1008; }
 
     @keyframes modalIn {
       from { opacity: 0; transform: scale(0.96) translateY(10px); }
@@ -946,10 +850,6 @@
       transition: border-color 0.2s;
     }
 
-    html.dark .modal input, html.dark .modal textarea {
-      background: #2e1e10;
-      color: var(--bark);
-    }
 
     .modal input:focus, .modal textarea:focus { border-color: var(--bark-light); }
     .modal textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
@@ -1112,10 +1012,6 @@
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
-      <span class="icon-sol">☀️</span>
-      <span class="icon-lua">🌙</span>
-    </button>
   </nav>
 
   <!-- HERO -->
@@ -1619,25 +1515,6 @@
     renderFeed();
   </script>
 
-  <script>
-    // ── THEME TOGGLE ──
-    (function() {
-      const btn = document.getElementById('theme-toggle');
-      const html = document.documentElement;
-
-      // Restaurar preferência salva
-      const saved = localStorage.getItem('tema-tres-raizes');
-      if (saved === 'dark') html.classList.add('dark');
-
-      btn.addEventListener('click', function() {
-        html.classList.toggle('dark');
-        localStorage.setItem('tema-tres-raizes',
-          html.classList.contains('dark') ? 'dark' : 'light'
-        );
-      });
-    })();
-  </script>
-
   <!-- ── MODAL REIKI ── -->
   <div class="modal-overlay" id="reiki-modal" role="dialog" aria-modal="true" aria-labelledby="reiki-modal-title">
     <div class="modal reiki-modal-box">
@@ -1940,8 +1817,6 @@
     }
 
     /* Dark mode adjustments */
-    html.dark .reiki-origem { background: rgba(255,255,255,0.05); }
-    html.dark .reiki-level  { background: rgba(106,138,82,0.12); border-color: rgba(170,192,138,0.3); }
 
     /* ── DIVISOR ── */
     .reiki-divider {
@@ -2042,9 +1917,6 @@
       color: var(--bark-mid);
     }
 
-    html.dark .florais-beneficios { background: rgba(106,138,82,0.12); border-color: rgba(170,192,138,0.35); }
-    html.dark .florais-cta { background: rgba(255,255,255,0.04); border-color: rgba(156,120,84,0.3); }
-    html.dark .florais-tag { background: rgba(106,138,82,0.12); border-color: rgba(170,192,138,0.35); }
 
     /* fix divider dot to green too */
     .reiki-divider-dot { background: var(--green-mid); }
@@ -2360,11 +2232,6 @@
     }
 
     /* Dark mode */
-    html.dark .fem-pilar    { background: rgba(212,130,58,0.1); border-color: rgba(234,184,120,0.3); }
-    html.dark .fem-foco     { background: rgba(255,255,255,0.04); }
-    html.dark .fem-tec      { background: rgba(212,130,58,0.1); border-color: rgba(234,184,120,0.3); }
-    html.dark .fem-modo     { background: rgba(212,130,58,0.1); border-color: rgba(234,184,120,0.3); }
-    html.dark .fem-cta      { background: rgba(255,255,255,0.04); border-color: rgba(156,120,84,0.3); }
 
     @media (max-width: 600px) {
       .fem-pilares { grid-template-columns: 1fr; }
@@ -2750,10 +2617,6 @@
     }
 
     /* Dark mode */
-    html.dark .jung-conceito  { background: rgba(128,96,168,0.12); border-color: rgba(190,168,216,0.3); }
-    html.dark .jung-item      { background: rgba(128,96,168,0.12); border-color: rgba(190,168,216,0.3); }
-    html.dark .jung-el        { background: rgba(128,96,168,0.12); border-color: rgba(190,168,216,0.3); }
-    html.dark .jung-cta       { background: rgba(255,255,255,0.04); border-color: rgba(156,120,84,0.3); }
 
     @media (max-width: 600px) {
       .jung-conceitos  { grid-template-columns: 1fr; }
@@ -3049,8 +2912,6 @@
     }
 
     /* Dark mode */
-    html.dark .bio-formacao { background: rgba(255,255,255,0.05); border-color: rgba(156,120,84,0.25); }
-    html.dark .bio-frase     { background: rgba(255,255,255,0.04); }
 
     @media (max-width: 600px) {
       .bio-formacoes { grid-template-columns: 1fr; }
