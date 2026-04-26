@@ -1,0 +1,38 @@
+# --- Proteção de Ambiente e Senhas (CRÍTICO) ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+
+# --- macOS / Tahoe específico ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# --- Backups automáticos do macOS ---
+*.swp
+*.swo
+*~
+
+# --- IDE e editores ---
+.vscode/
+.idea/
+*.sublime-*
+
+# --- Dependências (Node, Python, etc) ---
+node_modules/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# --- Logs e temporários ---
+*.log
+*.tmp
+*.temp
